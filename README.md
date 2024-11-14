@@ -1,15 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with
 [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-This project adds an additional library `@nats-io/nats-core` which provides
-the basic API for a NATS core client and includes the `wsconnect` function
-used for establishing a connection to the NATS server.
+This project adds additional libraries `@nats-io/nats-core` and `@nats-io/kv`
+which provides the basic API for a NATS core client and includes the `wsconnect`
+function used for establishing a connection to the NATS server as well as
+accessing JetStream data stored in a KV.
 
-This project edits the `src/pages/index.js` and adds a simple component that
-connects to NATS using NATS WebSockets via the `wsconnect` function. It connects
-to the server configured in the `url` property of the `Nats` component, and then
-creates a wildcard subscription to all messages. The last 10 messages and their
-subjects and their string payloads.
+This project adds:
+
+- `src/contexts/NatsContext` to track/create a connection on which other NATS
+  components can depend.
+- `src/components/Nats` which displays a logo, and connection status for the
+  client, and creates a subscrption that lists all the subjects that are flying
+  through the system.
+- `src/components/Kv` which monitors a KV for changes
+
+This project edits the `src/pages/index.js` to use the above components
 
 ## Getting Started
 
