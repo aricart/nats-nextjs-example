@@ -40,3 +40,56 @@ a {
     color-scheme: dark;
   }
 }
+
+
+   button {
+     display: inline-block;
+     outline: 0;
+     cursor: pointer;
+     padding: 5px 16px;
+     font-size: 14px;
+     font-weight: 500;
+     line-height: 20px;
+     vertical-align: middle;
+     border: 1px solid;
+     border-radius: 6px;
+     color: #ffffff;
+     background-color: #26a5d9;
+     border-color: #1b1f2326;
+     box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+     transition-property: color, background-color, border-color;
+     :hover {
+       background-color: #26a5d9;
+       border-color: #1b1f2326;
+       transition-duration: 0.1s;
+     }
+
+   }
+p.lead {
+  margin-top: 10px;
+  font-size: x-large;
+  line-height: 22px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+p {
+  font-size: medium;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+div.codebox {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/*code: {*/
+/*  fontSize: 12,*/
+/*  lineHeight: 14,*/
+/*  fontFamily: "Courier",*/
+/*},*/
+/*logo: {*/
+/*  width: screenWidth * .95,*/
+/*  alignSelf: "center",*/
+/*  resizeMode: "contain",*/
+/*  bottom: 100,*/
+/*},*/

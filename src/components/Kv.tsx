@@ -3,7 +3,7 @@ import { useNATS } from "@/contexts/NatsContext";
 import { KV, Kvm } from "@nats-io/kv";
 
 export default function Kv() {
-  const { nc, ncErr } = useNATS();
+  const { nc } = useNATS();
   const [kv, setKv] = useState<KV>();
   const [value, setValue] = useState<string>("waiting for value to change");
   const [watching, setWatching] = useState(false);
@@ -23,7 +23,7 @@ export default function Kv() {
     if (kv && !watching) {
       setWatching(true);
       (async () => {
-        const iter = await kv.watch({ key: "my_key" });
+        const iter = await kv.watch({ key: "key" });
         (async () => {
           for await (const e of iter) {
             if (e.operation === "DEL" || e.operation === "PURGE") {
@@ -39,13 +39,29 @@ export default function Kv() {
     }
   }, [nc, kv, watching]);
 
+  function updateKv() {
+    kv?.put("key", "Hello!    " + Date.now()).catch();
+  }
+
   if (!kv) {
-    return <p>Opening KV....</p>;
+    return (
+        <div style={{ marginBottom: 30 }}>
+          <h2>NATS Key/Value</h2>
+          <p className="lead">Opening...</p>
+        </div>
+    );
   }
   return (
-    <>
-      <p>Change KV `my_react_kv_example[my_key]` to see updates</p>
-      <p>KV value: {value}</p>
-    </>
+      <div style={{ marginBottom: 30 }}>
+        <h2>NATS Key/Value</h2>
+        <p>
+          This section shows a simple component that watches a KV for changes on
+          the key 'key' that is stored in the bucket 'my_react_kv_example'. If the
+          value changes, it will be reflected here:
+        </p>
+
+        <p><code>{value}</code></p>
+        <button onClick={updateKv}>Update the KV</button>
+      </div>
   );
 }

@@ -3,9 +3,10 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
 import Nats from "@/components/Nats";
-import { NatsContext, NatsProvider } from "@/contexts/NatsContext";
+import { NatsProvider } from "@/contexts/NatsContext";
 import React from "react";
 import Kv from "@/components/Kv";
+import Obj from "@/components/Obj";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,10 +32,20 @@ export default function Home() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
+          <Image
+              src="/nats.png"
+              alt="NATS logo"
+              width={360}
+              height={96}
+              priority
+          />
+          <>
           <NatsProvider url="wss://demo.nats.io:8443">
             <Nats />
             <Kv />
+            <Obj />
           </NatsProvider>
+            </>
         </main>
         <footer className={styles.footer}>
         </footer>
