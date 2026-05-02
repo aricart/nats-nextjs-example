@@ -9,18 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nats-io/kv": "^3.0.0-21",
-    "@nats-io/nats-core": "^3.0.0-40",
-    "@nats-io/obj": "^3.0.0-22",
+    "@nats-io/kv": "^3.3.1",
+    "@nats-io/nats-core": "^3.3.1",
+    "@nats-io/obj": "^3.3.1",
     "bootstrap": "^5.3.3",
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "next": "^16.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "typescript": "^5"
   }
 }
