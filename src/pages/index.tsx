@@ -1,12 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import localFont from "next/font/local";
+import dynamic from "next/dynamic";
 import styles from "@/styles/Home.module.css";
-import Nats from "@/components/Nats";
-import { NatsProvider } from "@/contexts/NatsContext";
-import React from "react";
-import Kv from "@/components/Kv";
-import Obj from "@/components/Obj";
+
+// WebSocket only runs in the browser; skip SSR for the NATS app.
+const NatsApp = dynamic(() => import("@/components/NatsApp"), { ssr: false });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,22 +32,15 @@ export default function Home() {
       >
         <main className={styles.main}>
           <Image
-              src="/nats.png"
-              alt="NATS logo"
-              width={360}
-              height={96}
-              priority
+            src="/nats.png"
+            alt="NATS logo"
+            width={360}
+            height={96}
+            priority
           />
-          <>
-          <NatsProvider url="wss://demo.nats.io:8443">
-            <Nats />
-            <Kv />
-            <Obj />
-          </NatsProvider>
-            </>
+          <NatsApp />
         </main>
-        <footer className={styles.footer}>
-        </footer>
+        <footer className={styles.footer}></footer>
       </div>
     </>
   );
