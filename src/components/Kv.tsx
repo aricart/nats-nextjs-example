@@ -35,7 +35,7 @@ export default function Kv() {
       <h2>NATS Key/Value</h2>
       <p>
         This section shows a simple component that watches a KV for changes
-        on the key 'key' that is stored in the bucket 'my_react_kv_example'.
+        on the key &apos;key&apos; that is stored in the bucket &apos;my_react_kv_example&apos;.
         If the value changes, it will be reflected here:
       </p>
 
