@@ -32,7 +32,7 @@ export default function Obj() {
       <h2>NATS ObjectStore</h2>
       <p>
         This section shows a simple component that watches an ObjectStore
-        called 'my_react_obj_example', and updates when any entry changes.
+        called &apos;my_react_obj_example&apos;, and updates when any entry changes.
         The last change received:
       </p>
 

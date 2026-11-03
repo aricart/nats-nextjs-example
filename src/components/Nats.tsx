@@ -92,12 +92,12 @@ export default function Nats() {
       <h2>Pub/Sub</h2>
 
       <p>
-        The application is subscribed to <code>'{inbox}'</code>, and it
+        The application is subscribed to <code>&apos;{inbox}&apos;</code>, and it
         receives all messages published to the server on that subject. The
         application prints the subject the message was received on. If
         nothing is printing, connect to the server at {NATS_URL} and publish
-        a message with a tool such as the 'nats' CLI, or click the button
-        below to publish a random message on <code>'{inbox}'</code>.
+        a message with a tool such as the &apos;nats&apos; CLI, or click the button
+        below to publish a random message on <code>&apos;{inbox}&apos;</code>.
       </p>
 
       <Msgs msgs={messages} />
